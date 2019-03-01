@@ -20,6 +20,5 @@ class Program {
       };
     }
     return sum;
-
   }
 }
