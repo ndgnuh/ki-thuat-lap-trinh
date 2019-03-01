@@ -2,8 +2,11 @@ using System;
 
 public class Combinator {
     public static void Main () {
-        int n = 14, k = 3;
-        Console.WriteLine(n + "C" + k + " = " + Comb(k,n));
+        int k = 1;
+        for(int n = 2; n < 32000; n++) {
+          Console.WriteLine("n = " + n);
+          Console.WriteLine(n + "C" + k + " = " + Comb(k,n));
+        }
     }
 
     private static long Fact(int n) {
