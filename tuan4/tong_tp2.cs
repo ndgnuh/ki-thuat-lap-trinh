@@ -5,7 +5,7 @@ class Program {
     Console.Write("Nhap a: ");
     double a =Convert.ToDouble( Console.ReadLine());
     // Random rnd = new Random();
-    // double a = 123.3232;
+    // double a = rnd.NextDouble();
     TongTP(a);
   }
 
