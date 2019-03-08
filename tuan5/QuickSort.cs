@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-class QSDNC 
+class QuickSort 
 {
   public static void Main () {
     List<int> ListToSort = new List<int> {3,4,1,5,1,35,3,12,2412,3};

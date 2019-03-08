@@ -6,7 +6,6 @@ class DynamicCombinator
   private static List<double> FactorialList = new List<double> {1};
 
   public static void Main () {
- 
     Console.Write("[input] n: "); 
     int n = Convert.ToInt32(Console.ReadLine());
 
