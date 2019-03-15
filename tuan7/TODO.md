@@ -1,0 +1,1 @@
+1. Tính xấp xỉ sin(x), sqrt(2), pi.
