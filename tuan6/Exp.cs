@@ -23,22 +23,19 @@ public class Expx
 
   private static double Exp(double x, double tol = 10e-4) {
     double term = 1;
-    double sum = 0;
+    double sum = 1;
     int n = 0;
-    while (true) {
-      sum = sum + term;
-
-      // term is sufficently small
-      if(term < tol) {
-        return sum;
-      }
+    while(term >= tol) {
       /* 
        * a_n = x^n / n! 
        * --> a_{n+1} = a_n * x / (n+1)
        */ 
       n = n + 1;
       term = term * x / n;
+
+      sum = sum + term;
     }
+    return sum;
   }
 
 
