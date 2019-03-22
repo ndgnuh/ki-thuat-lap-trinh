@@ -44,7 +44,7 @@ namespace Maclaurin {
     private static int n = 1;
     private static int Sign = 1;
     private static double Term;
-    public static double Tol = 10e-8;
+    public static double Tol = 10e-5;
 
     private static double NextTerm() {
       /*
@@ -66,7 +66,6 @@ namespace Maclaurin {
       return Sum;
     }
   }
-
 
   internal class Sqrt {
     private static int n = 3;

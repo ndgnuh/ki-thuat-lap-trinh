@@ -61,7 +61,7 @@ public class Program
     for(int Row = 0; Row < BoardSize; Row ++){
       Console.Write("|");
       for(int Col = 0; Col < BoardSize; Col++) 
-        if(Col == ColPos[Row]) Console.Write("@|"); else Console.Write(" |");
+        if(Col == ColPos[Row]) Console.Write("x|"); else Console.Write(" |");
       Console.WriteLine();
     }
   }
