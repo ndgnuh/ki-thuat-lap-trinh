@@ -6,6 +6,7 @@ namespace PIDigits
 {
   public class BigDecimal 
   {
+    // tạo trường thực 
     private static int Precision = 300;
     private static BigInteger A = BigInteger.Pow(10, Precision);
     public BigInteger Deno;

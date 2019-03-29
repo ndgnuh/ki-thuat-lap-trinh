@@ -10,11 +10,12 @@ public class Program
   public static void Main() {
     BigInteger a = new BigInteger(1234444);
     BigInteger b = new BigInteger(9018273645);
+    int c = 1000;
     
     Console.WriteLine(b*b*b*b*b*b);
     Console.WriteLine(b > a);
     Console.WriteLine(b % a);
-    Console.WriteLine("100! = " + Fact(100));
+    Console.WriteLine(c + "! = " + Fact(c));
   }
 
   private static BigInteger Fact(int n) {
