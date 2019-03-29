@@ -8,7 +8,8 @@ namespace PIDigits
   {
     // tạo trường thực 
     private static int Precision = 300;
-    private static BigInteger A = BigInteger.Pow(10, Precision);
+    public static int Slop = 2;
+    private static BigInteger A = BigInteger.Pow(10, Precision + Slop);
     public BigInteger Deno;
     public BigInteger Nume;
 
@@ -19,12 +20,15 @@ namespace PIDigits
 
     public static void UpdatePrecision(int P) {
       Precision = P;
-      A = BigInteger.Pow(10, P);
+      A = BigInteger.Pow(10, P + Slop);
     }
 
     // vô hướng
     public static BigDecimal operator *(BigDecimal Left, int Right) {
       return new BigDecimal(Left.Nume*Right, Left.Deno);
+    }
+    public static BigDecimal operator /(BigDecimal Left, int Right) {
+      return new BigDecimal(Left.Nume, Left.Deno * Right);
     }
     // trong tập số.
     public static BigDecimal operator *(BigDecimal Left, BigDecimal Right) {
@@ -43,8 +47,9 @@ namespace PIDigits
     }
 
     public override string ToString() {
-      string S = Convert.ToString(this.Val()).PadLeft(Precision, '0');
-      S = S.Insert(S.Length - Precision, ".");
+      string S = Convert.ToString(this.Val()).PadLeft(Precision + Slop, '0');
+      S = S.Insert(S.Length - Precision - Slop, ".");
+      S = S.Remove(S.Length - Slop);
       return S;
     }
   }
@@ -52,19 +57,11 @@ namespace PIDigits
   public class Program 
   {
     public static void Main () {
-      Console.Write("Precision: ");
-      BigDecimal.UpdatePrecision(Convert.ToInt32(Console.ReadLine()));
-
-      // string S = "";
-      // for(int i = 1; i < 700; i *=2) {
-      //   BigDecimal.UpdatePrecision(i);
-      //   Console.Write("Digits: " + i + ". ");
-      //   S = Convert.ToString(PI());
-      // }
-   
-
+      // Console.Write("Precision: ");
+      // BigDecimal.UpdatePrecision(Convert.ToInt32(Console.ReadLine()));
 
       string S = Convert.ToString(PI());
+      Console.WriteLine(S);
       Console.WriteLine("Number of digits: " + (S.Length - 2));
       using(StreamWriter sw = File.CreateText(Directory.GetCurrentDirectory() + "/PI")) {
         sw.WriteLine(S);
@@ -81,7 +78,8 @@ namespace PIDigits
       BigDecimal Term4 = new BigDecimal(1,12943);
       int n = 1; int sgn = 1;
       BigDecimal Sum = new BigDecimal(0,1);
-      while(Term1.Val() > 0) {
+      while((Term1).Val() > 0) {
+        // chưa được tối ưu
         Sum = Sum + ((Term1*44 + Term2*7-Term3*12 + Term4*24) * sgn);
         Term1.Nume = Term1.Nume * n;
         Term2.Nume = Term2.Nume * n;
