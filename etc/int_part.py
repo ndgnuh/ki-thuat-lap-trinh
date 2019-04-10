@@ -6,7 +6,7 @@ def part(n):
   def try_part(i = 1):
     return 0
 
-part(7)
+# part(7)
 
 def gen_sample(n):
   x = (n+1)*[1];
