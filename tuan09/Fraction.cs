@@ -51,7 +51,6 @@ public class Fraction
 	public static Fraction operator /(Fraction left, int right) {
 		return new Fraction(left.nume, left.deno * right);
 	}
-
 	
 	public static Fraction operator +(int left, Fraction right) {
 		return right + left;
@@ -73,10 +72,8 @@ public class Fraction
 	public static bool operator >(Fraction left, Fraction right) {
 		return (left - right).IsPositive();
 	}
-
 	public static bool operator <(Fraction left, Fraction right) {
 		return (right - left).IsPositive();
-
 	}
 	public static  bool operator ==(Fraction left, Fraction right) {
 		return left.deno*right.nume == right.deno * left.nume;
@@ -91,7 +88,6 @@ public class Fraction
 		return left == right || left < right;
 	}
 
-	
 	private static int Gcd(int a, int b){
 		int t = 0;
 		while ( b != 0){
