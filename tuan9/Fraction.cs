@@ -17,7 +17,7 @@ public class Fraction
 	public Fraction Inv() {
 		return new Fraction(this.deno, this.nume);
 	}
-	
+
 	public static Fraction operator -(Fraction frac) {
 		return new Fraction(-frac.nume,frac.deno);
 	}
@@ -66,7 +66,30 @@ public class Fraction
 		return right.Inv() * left;
 	}
 	
+	// relation
+	private bool IsPositive() {
+		return this.deno * this.nume > 0;
+	}
+	public static bool operator >(Fraction left, Fraction right) {
+		return (left - right).IsPositive();
+	}
 
+	public static bool operator <(Fraction left, Fraction right) {
+		return (right - left).IsPositive();
+
+	}
+	public static  bool operator ==(Fraction left, Fraction right) {
+		return left.deno*right.nume == right.deno * left.nume;
+	}
+	public static  bool operator !=(Fraction left, Fraction right) {
+		return left.deno*right.nume != right.deno * left.nume;
+	}
+	public static  bool operator >=(Fraction left, Fraction right) {
+		return left == right || left > right;
+	}
+	public static  bool operator <=(Fraction left, Fraction right) {
+		return left == right || left < right;
+	}
 
 	
 	private static int Gcd(int a, int b){
@@ -124,6 +147,14 @@ public class Program{
 		Console.WriteLine("c - a = " + (c-a));
 		Console.WriteLine("c / a = " + (c/a));
 		Console.WriteLine("a / c = " + (a/c));
+
+		Console.WriteLine("===========");
+		Console.WriteLine("a == a: " + (a == a));
+		Console.WriteLine("a != a: " + (a != a));
+		Console.WriteLine("a >= a: " + (a >= a));
+		Console.WriteLine("a < b: " + (a > b));
+		Console.WriteLine("a > b: " + (a < b));
+
 	}
 }
 
