@@ -2,6 +2,9 @@
 
 Danh sách các bài nằm trong file `TODO.md`
 
+# Yêu cầu
+Cài đặt `mono` hoặc `.NET`, cài 1 trong 2 để lấy cái `msc` là được. Nếu dùng `mono` thì có thêm `REPL` để test code trực tiếp trên terminal khá tiện.
+
 # Cách compile và chạy
 ```sh
 mcs source-code.cs
@@ -18,9 +21,6 @@ Với những bài có dùng `BigInteger`, cần ref tới `System.Numerics.dll`
 ```sh
 mcs /reference:System.Numerics.dll
 ```
-
-
-***Mấy câu hỏi vớ vẩn kiểu như cài đặt như nào, làm thế nào để tải code về, etc... hay các câu hỏi liên quan đến lỗi syntax sẽ không được trả lời (kiểu như lỗi vì thiếu dấu ';', không đọc xong rồi hỏi sửa kiểu gì là cho next hết). Mấy cái này chịu khó đọc với tìm trên mạng là ra.***
 
 # Nội dung thi giữa kì
 - Bài toán n chữ số PI
