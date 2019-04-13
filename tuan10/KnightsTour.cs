@@ -6,7 +6,7 @@ namespace KnightsTour
  class Program 
   {
     static public int width = 5;
-    public static int height = 3;
+    public static int height = 4;
     public static int n = height + 4; /* 2 border sentinel values */
     public static int m = width + 4;
     public static int iMax = n*m;
