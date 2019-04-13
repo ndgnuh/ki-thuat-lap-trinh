@@ -10,7 +10,7 @@ namespace KnightsTour
     public static int n = height + 4; /* 2 border sentinel values */
     public static int m = width + 4;
     public static int iMax = n*m;
-    public static int startPos = 3*n + 4;
+    public static int startPos = 3*m + 4;
     public static int Count = 0;
     public static int SolutionCount = 0;
     public static List<bool> Free = new List<bool> {};
@@ -30,21 +30,21 @@ namespace KnightsTour
       for(int i = 2; i < n-2; i++) {
         for(int j = 2; j < m-2; j++)
           /* 2x2 border sentinel values, inside are free */
-          Free[i*n+j] = true;
+          Free[i*m+j] = true;
       }
       Free[startPos] =false;
     }
 
     public static void Try(int i) {
         List<int> moves = new List<int> {
-          i - n - 2, 
-          i - n + 2,
-          i + n - 2,
-          i + n + 2,
-          i - 2*n - 1,
-          i - 2*n + 1,
-          i + 2*n - 1,
-          i + 2*n + 1
+          i - m - 2, 
+          i - m + 2,
+          i + m - 2,
+          i + m + 2,
+          i - 2*m - 1,
+          i - 2*m + 1,
+          i + 2*m - 1,
+          i + 2*m + 1
         };
         foreach(int j in moves) {
           if(Free[j]) { 
@@ -73,9 +73,9 @@ namespace KnightsTour
 
       for(int i = start; i < end; i++) {
         for(int j = start; j < cend; j++)
-          if (i*n + j == startPos) Console.Write("|  0");
-          else if(Path[i*n+j] > 0) Console.Write("|" + Convert.ToString(Path[i*n+j]).PadLeft(3));
-          else if(!Free[i*n+j]) Console.Write("|@@@");
+          if (i*m + j == startPos) Console.Write("|  0");
+          else if(Path[i*m+j] > 0) Console.Write("|" + Convert.ToString(Path[i*m+j]).PadLeft(3));
+          else if(!Free[i*m+j]) Console.Write("|@@@");
           else Console.Write("|   ");
         Console.WriteLine("|");
       }
