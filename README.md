@@ -1,11 +1,15 @@
 # Repo cho kĩ thuật lập trình
 
+## Mục lục
+- [Yêu cầu](#yêu-cầu)
+- [Hướng dẫn](#cách-compile-và-chạy)
+
 Danh sách các bài nằm trong file `TODO.md`
 
-# Yêu cầu
+## Yêu cầu
 Cài đặt `mono` hoặc `.NET`, cài 1 trong 2 để lấy cái `msc` là được. Nếu dùng `mono` thì có thêm `REPL` để test code trực tiếp trên terminal khá tiện.
 
-# Cách compile và chạy
+## Cách compile và chạy
 ```sh
 mcs source-code.cs
 ```
@@ -22,6 +26,6 @@ Với những bài có dùng `BigInteger`, cần ref tới `System.Numerics.dll`
 mcs /reference:System.Numerics.dll
 ```
 
-# Nội dung thi giữa kì
+## Nội dung thi giữa kì
 - Bài toán n chữ số PI
 - Bài toán cái túi (tham lam)
