@@ -7,6 +7,9 @@
                         "label": "Compile and run",
                         "type": "shell",
                         "command": "mcs /reference:System.Numerics.dll ${file} && mono ${fileDirname}/${fileBasenameNoExtension}.exe",
+                        "windows": {
+                                "command": "mcs /reference:System.Numerics.dll ${file} && mono ${fileDirname}\\${fileBasenameNoExtension}.exe",
+                        },
                         "group": {
                                 "kind": "build",
                                 "isDefault": true
