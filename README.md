@@ -7,9 +7,11 @@
 Danh sách các bài nằm trong file `TODO.md`
 
 ## Yêu cầu
-Cài đặt `mono` hoặc `.NET`, cài 1 trong 2 để lấy cái `msc` là được. Nếu dùng `mono` thì có thêm `REPL` để test code trực tiếp trên terminal khá tiện.
+- `mono` hoặc `dotnet`
 
 ## Cách compile và chạy
+
+Lưu ý: Hướng dẫn dưới đây dựa vào `mono`, những ai dùng `.NET` thì nên sửa `mcs` thành `csc`. Cả trong build task của `vscode` lẫn terminal.
 
 ### Với những người dùng Vs-code
 
