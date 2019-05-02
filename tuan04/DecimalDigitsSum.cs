@@ -11,14 +11,14 @@ class Program {
   }
 
   private static int TongTP (double a) {
-    double atp = a - Convert.ToInt32(a);
+    double atp = a - (int)(a);
     Console.WriteLine("Phan thap phan cua a: " + atp);
     Int32 count  = atp.ToString().Count() - 2;
     int sum = 0;
     for(int i = 0; i < count; i++) {
       atp = atp * 10;
-      sum += (int) atp ;
-      atp = atp - (int) atp;
+      sum += Convert.ToInt32(atp);
+      atp = atp - (int)atp;
     }
     Console.WriteLine("Tong thap phan cua " + a + " la " + sum);
     return sum;
