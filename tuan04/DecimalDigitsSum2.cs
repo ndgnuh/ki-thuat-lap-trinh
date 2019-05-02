@@ -13,11 +13,11 @@ class Program {
     string astr = a.ToString();
     int sum = 0;
     for( int i = astr.Length - 1; i > 0; i --) {
-      sum += Convert.ToInt32(Char.GetNumericValue(astr[i]));
       if(astr[i] == '.') {
         Console.WriteLine("Tong thap phan cua " + a + " la " + sum);
         return sum;
       };
+      sum += Convert.ToInt32(Char.GetNumericValue(astr[i]));
     }
     return sum;
   }
