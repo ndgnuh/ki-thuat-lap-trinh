@@ -38,3 +38,6 @@ mcs /reference:System.Numerics.dll source-code.cs
 ## Nội dung thi giữa kì
 - Bài toán n chữ số PI
 - Bài toán cái túi (tham lam)
+
+## Nội dung thi cuối kì
+Xem trong thư mục `cuoi-ki`, file `TODO.md`.
