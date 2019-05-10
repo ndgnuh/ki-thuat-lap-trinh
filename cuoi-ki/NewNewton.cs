@@ -20,7 +20,7 @@ public class NewtonSolver
 
 	public static double SolveV1(Func<double, double> f, Func<double, double> df, double mindf, double x)
 	{
-		while(Math.Abs(f(x))/mindf >= tol)
+		while(Math.Abs(f(x))>= tol*mindf )
 		{
 			if(df(x) == 0)
 			{
@@ -42,7 +42,7 @@ public class NewtonSolver
 		}
 		double diff = f(x) / df(x);
 
-		while(Math.Abs(diff) > tol)
+		while(mindf*Math.Abs(diff) > maxdf*tol)
 		{
 			if(df(x) == 0)
 			{
