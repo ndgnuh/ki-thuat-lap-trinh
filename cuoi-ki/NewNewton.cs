@@ -15,6 +15,7 @@ public class NewtonSolver
 
 		SolveV1(f, df, 1, 1);
 		SolveV2(f, df, 1, 4, 1);
+		SolveV3(f, df, 1);
 
 	}
 
@@ -55,4 +56,25 @@ public class NewtonSolver
 		Console.WriteLine("x = " + x);
 		return x;
 	}
+
+	public static double SolveV3(Func<double, double> f, Func<double, double> df, double x)
+	{
+		double prevx;
+		while(true)
+		{
+			if(df(x) == 0)
+			{
+				Console.WriteLine("Error, df/dx == 0 where x = " + x);
+				return -1;
+			}
+			prevx = x;
+			x = x - f(x)/df(x);
+			if(Math.Abs(f(prevx) - f(x)) < tol) 
+			{
+				Console.WriteLine("x = " + x);
+				return x;
+			}
+		}
+	}
+
 }
