@@ -43,7 +43,7 @@ public class NewtonSolver
 		}
 		double diff = f(x) / df(x);
 
-		while(mindf*Math.Abs(diff) > maxdf*tol)
+		while(2*maxdf*diff*diff > mindf*tol)
 		{
 			if(df(x) == 0)
 			{
@@ -59,22 +59,18 @@ public class NewtonSolver
 
 	public static double SolveV3(Func<double, double> f, Func<double, double> df, double x)
 	{
-		double prevx;
-		while(true)
+		while(Math.Abs(f(x))>= tol )
 		{
 			if(df(x) == 0)
 			{
 				Console.WriteLine("Error, df/dx == 0 where x = " + x);
 				return -1;
 			}
-			prevx = x;
 			x = x - f(x)/df(x);
-			if(Math.Abs(f(prevx) - f(x)) < tol) 
-			{
-				Console.WriteLine("x = " + x);
-				return x;
-			}
 		}
+		Console.WriteLine("x = " + x);
+		return x;
 	}
+
 
 }
