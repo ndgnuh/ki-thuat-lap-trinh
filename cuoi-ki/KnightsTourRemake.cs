@@ -39,8 +39,11 @@ namespace KnightsTour
 		public static void Main(){
 			int startx = 0;
 			int starty = 0;
+			int start = (starty + 2)*m + startx + 2;
 			Prepare();
-			Try((starty + 3) * m + startx + 4);
+			Path[(starty + 2)*m + startx + 2] = 0;
+			PrintBoard(true);
+			Try(start);
 			Console.WriteLine("Total numer of solutions: " + solutionsCount);
 		}
 
@@ -65,14 +68,16 @@ namespace KnightsTour
 			}
 		}
 
-		public static bool Try(int i) {
+		public static bool Try(int i) 
+		{
 			if(Path[i] == width*height-1){
 				solutionsCount+=1;
 				PrintBoard();
 			}
 			if(findOnce && solutionsCount > 0) return false;
-			List<int> moves = new List<int> {
-				  i -   m - 2, 
+			List<int> moves = new List<int>
+			{
+				i -   m - 2, 
 				  i -   m + 2,
 				  i +   m - 2,
 				  i +   m + 2,
@@ -88,17 +93,16 @@ namespace KnightsTour
 					Path[j] = -1;
 				}
 			}
-		return true;
-	}
+			return true;
+		}
 
-		public static void PrintBoard(bool all = false){
+		public static void PrintBoard(bool all = false)
+		{
 			for(int i = 0; i < m; i++) Console.Write("###");
 			Console.WriteLine("");
-
 			int start = all ? 0 : 2;
 			int end = all ? n : n -2;
 			int cend = all ? m : m -2;
-
 			for(int i = start; i < end; i++) {
 				for(int j = start; j < cend; j++)
 					if (Path[i*m+j] == -1) Console.Write("|   ");
