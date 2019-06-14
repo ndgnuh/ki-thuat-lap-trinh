@@ -19,25 +19,21 @@ public class PrimalityTest
 		return (n > 1) && true;
 	}
 
-	public static bool IsPrimeV3(int n)
+	public static bool EratosthenesCheck(int n)
 	{
-		List<int> P = new List<int>{};
-		for(int i = 2; i < n; i++) P.Add(i);
-		for(int i = 2; i < P.Count; i++)
+		List<bool> isPrime = new List<bool>{false, false};
+		for (int i = 2; i < n+1; i++)
 		{
-			for(int j = 2; j < n/P[i]; j++)
+			isPrime.Add(true);
+		}
+		for (int i = 2; i < n+1; i++)
+		{
+			for (int j = i*i; j < n+1; j=j+i)
 			{
-				/* vì mục đích là kiểm tra số n có nguyên tố hay không, nên nếu tìm ra được một bội số là n thì thoát luôn */
-				if(P[i]*j == n) return false;
-
-				/* xóa bớt các bội số */
-				P.Remove(P[i]*j);
-				i = i - 1;
+				isPrime[j] = false;
 			}
 		}
-
-
-		return (n > 1) && true;
+		return isPrime[n];
 	}
 
 	public static void Main()
@@ -52,7 +48,7 @@ public class PrimalityTest
 		else
 			Console.WriteLine("not a prime");
 
-		if(IsPrimeV3(7))
+		if(EratosthenesCheck(37))
 			Console.WriteLine("is a prime");
 		else
 			Console.WriteLine("not a prime");
